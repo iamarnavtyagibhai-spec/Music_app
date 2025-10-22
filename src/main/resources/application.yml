@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      uri: "mongodb+srv://arnav:Arnav%402006@cluster0.fj8gi7o.mongodb.net/Musify?retryWrites=true&w=majority&appName=Cluster0"
+# arnav
+# Arnav@2006
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: "233188342295-drgmujf68ta1is994l8i8aaoed89sn3n.apps.googleusercontent.com"
+            client-secret: "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"
+            scope:
+              - openid
+              - profile
+              - email
+        
