@@ -1,21 +1,21 @@
-# Use lightweight OpenJDK 17 base image
+# Use lightweight JDK 17
 FROM eclipse-temurin:17-jdk-alpine
 
 # Set working directory
 WORKDIR /app
 
-# Copy Maven wrapper and project files
+# Copy project files
 COPY . .
 
-# Make sure the Maven wrapper is executable
+# Make Maven wrapper executable
 RUN chmod +x mvnw
 
-# Build the Spring Boot application (skip tests for faster builds)
+# Build the project
 RUN ./mvnw clean package -DskipTests
 
-# Expose the port that Spring Boot will use (Render sets $PORT)
+# Expose port (Render will override $PORT)
 ENV PORT=8081
 EXPOSE 8081
 
-# Run the built JAR
-CMD ["java", "-jar", "target/*.jar"]
+# Run the built JAR (use exact name)
+CMD ["java", "-jar", "target/Musify-0.0.1-SNAPSHOT.jar"]
